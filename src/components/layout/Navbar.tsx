@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Phone, MessageCircle, Menu, X, Car, ArrowRight } from "lucide-react";
+import { Phone, MessageCircle, Menu, X, Car, ArrowRight, Sparkles } from "lucide-react";
 import { BUSINESS_CONFIG } from "../../config/business";
 import { scrollToSection } from "../../utils/contact";
 import { getGeneralEnquiryWhatsAppUrl } from "../../utils/whatsapp";
@@ -20,9 +20,11 @@ export const Navbar: React.FC = () => {
     { label: "Home", href: "hero-section" },
     { label: "One Way Taxi", href: "booking-section" },
     { label: "Fare List", href: "fare-list-section" },
-    { label: "Our Fleet", href: "fleet-section" },
-    { label: "Our Services", href: "services-section" },
-    { label: "About Us", href: "about-section" },
+    { label: "Fleet Showcase", href: "fleet-showcase-section" },
+    { label: "Urbania Luxury", href: "urbania-section", highlight: true },
+    { label: "Destinations", href: "destinations-gallery-section" },
+    { label: "Services", href: "services-section" },
+    { label: "About", href: "about-section" },
     { label: "Contact", href: "contact-section" },
   ];
 
@@ -36,7 +38,7 @@ export const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-brand border-b border-slate-200/80 py-2.5"
-          : "bg-white border-b border-slate-100 py-3.5"
+          : "bg-white border-b border-slate-100 py-3"
       }`}
     >
       {/* Top micro bar for phone & WhatsApp */}
@@ -45,13 +47,13 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-6">
             <span className="text-yellow-brand font-semibold flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              24/7 One-Way Taxi On Call: Delhi • Chandigarh • Patiala • Delhi NCR
+              24/7 One-Way Taxi On Call: Delhi • Chandigarh • Patiala • All India
             </span>
           </div>
           <div className="flex items-center gap-5">
             <a
               href={BUSINESS_CONFIG.phones.primaryHref}
-              className="hover:text-yellow-brand flex items-center gap-1.5 transition-colors"
+              className="hover:text-yellow-brand flex items-center gap-1.5 transition-colors font-medium"
             >
               <Phone className="w-3.5 h-3.5 text-yellow-brand" />
               <span>{BUSINESS_CONFIG.phones.primary}</span>
@@ -59,7 +61,7 @@ export const Navbar: React.FC = () => {
             <span className="text-slate-600">|</span>
             <a
               href={BUSINESS_CONFIG.phones.secondaryHref}
-              className="hover:text-yellow-brand flex items-center gap-1.5 transition-colors"
+              className="hover:text-yellow-brand flex items-center gap-1.5 transition-colors font-medium"
             >
               <Phone className="w-3.5 h-3.5 text-yellow-brand" />
               <span>{BUSINESS_CONFIG.phones.secondary}</span>
@@ -69,7 +71,7 @@ export const Navbar: React.FC = () => {
               href={getGeneralEnquiryWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 transition-colors"
+              className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1 transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>WhatsApp Chat</span>
@@ -79,7 +81,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-3">
           {/* Logo & Brand Identity */}
           <a
             href="#hero-section"
@@ -87,7 +89,7 @@ export const Navbar: React.FC = () => {
               e.preventDefault();
               handleNavClick("hero-section");
             }}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group shrink-0"
           >
             <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-yellow-brand/40 shadow-sm bg-black shrink-0 flex items-center justify-center p-0.5">
               <img
@@ -112,20 +114,25 @@ export const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-5">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-xs font-bold text-text-main hover:text-red-brand uppercase tracking-wider transition-colors py-1"
+                className={`text-xs font-bold uppercase tracking-wider transition-colors py-1 flex items-center gap-1 ${
+                  link.highlight
+                    ? "text-red-brand hover:text-red-brand-hover font-black bg-red-brand/10 px-2.5 py-1 rounded-lg"
+                    : "text-text-main hover:text-red-brand"
+                }`}
               >
-                {link.label}
+                {link.highlight && <Sparkles className="w-3 h-3 text-red-brand" />}
+                <span>{link.label}</span>
               </button>
             ))}
           </nav>
 
           {/* Action Call & CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 shrink-0">
             <a
               href={BUSINESS_CONFIG.phones.primaryHref}
               className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy font-bold text-xs transition-colors"
@@ -172,9 +179,14 @@ export const Navbar: React.FC = () => {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-left py-2 px-3 text-xs font-bold text-navy-deep hover:bg-yellow-brand/20 rounded-lg transition-colors"
+                className={`text-left py-2 px-3 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 ${
+                  link.highlight
+                    ? "bg-red-brand/10 text-red-brand font-black"
+                    : "text-navy-deep hover:bg-yellow-brand/20"
+                }`}
               >
-                {link.label}
+                {link.highlight && <Sparkles className="w-3.5 h-3.5 text-red-brand" />}
+                <span>{link.label}</span>
               </button>
             ))}
           </div>

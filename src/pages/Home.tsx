@@ -3,11 +3,15 @@ import { Navbar } from "../components/layout/Navbar";
 import { Hero } from "../components/sections/Hero";
 import { BookingForm, BookingFormHandle } from "../components/sections/BookingForm";
 import { FareList } from "../components/sections/FareList";
+import { PremiumVehicleShowcase } from "../components/sections/PremiumVehicleShowcase";
+import { UrbaniaLuxuryShowcase } from "../components/sections/UrbaniaLuxuryShowcase";
 import { PopularRoutes } from "../components/sections/PopularRoutes";
-import { Fleet } from "../components/sections/Fleet";
+import { DestinationGallery } from "../components/sections/DestinationGallery";
 import { Services } from "../components/sections/Services";
 import { WhyChooseUs } from "../components/sections/WhyChooseUs";
+import { TravelExperience } from "../components/sections/TravelExperience";
 import { About } from "../components/sections/About";
+import { OfficeLocations } from "../components/sections/OfficeLocations";
 import { Contact } from "../components/sections/Contact";
 import { Footer } from "../components/layout/Footer";
 import { WhatsAppButton } from "../components/ui/WhatsAppButton";
@@ -27,15 +31,15 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-surface text-text-main font-sans">
-      {/* 1. Sticky Navigation */}
+    <div className="min-h-screen flex flex-col bg-surface text-text-main font-sans selection:bg-yellow-brand selection:text-navy-deep">
+      {/* 1. Navigation Bar */}
       <Navbar />
 
       <main className="flex-grow">
         {/* 2. Hero Section */}
         <Hero />
 
-        {/* 3. One Way Taxi Booking Form */}
+        {/* 3. Booking Form */}
         <BookingForm
           ref={bookingFormRef}
           initialVehicle={selectedVehicle}
@@ -44,32 +48,44 @@ export const Home: React.FC = () => {
         {/* 4. One Way Taxi Fare List */}
         <FareList onSelectVehicle={handleSelectVehicle} />
 
-        {/* 5. Popular Route Enquiries */}
+        {/* 5. Premium Vehicle Showcase */}
+        <PremiumVehicleShowcase onSelectVehicle={handleSelectVehicle} />
+
+        {/* 6. Urbania Traveller Luxury Showcase */}
+        <UrbaniaLuxuryShowcase onSelectVehicle={handleSelectVehicle} />
+
+        {/* 7. Popular Routes */}
         <PopularRoutes onSelectRoute={handleSelectRoute} />
 
-        {/* 6. Our Fleet */}
-        <Fleet onSelectVehicle={handleSelectVehicle} />
+        {/* 8. Travel Destination Gallery */}
+        <DestinationGallery />
 
-        {/* 7. Our Services */}
+        {/* 9. Our Services */}
         <Services />
 
-        {/* 8. Why Choose GARG CABS */}
+        {/* 10. Why Choose GARG CABS */}
         <WhyChooseUs />
 
-        {/* 9. About Us */}
+        {/* 11. Premium Travel Experience */}
+        <TravelExperience />
+
+        {/* 12. About GARG CABS */}
         <About />
 
-        {/* 10 & 11. Both Office Locations & Contact Section */}
+        {/* 13. Office Locations */}
+        <OfficeLocations />
+
+        {/* 14. Contact Section */}
         <Contact />
       </main>
 
-      {/* 12. Footer */}
+      {/* 15. Footer */}
       <Footer />
 
-      {/* 13. Floating WhatsApp Button (Desktop) */}
+      {/* 16. Floating WhatsApp Button */}
       <WhatsAppButton />
 
-      {/* 14. Mobile Sticky Booking Bar */}
+      {/* 17. Mobile Sticky Booking Bar */}
       <MobileActionBar />
     </div>
   );

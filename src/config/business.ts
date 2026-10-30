@@ -15,6 +15,10 @@ export const BUSINESS_CONFIG = {
   shortName: "Garg Cabs",
   tagline: "ONE WAY TAXI SERVICES",
   subTagline: "A SIGNATURE OF EXCELLENCE",
+  motto: "YOUR JOURNEY, OUR RESPONSIBILITY.",
+  servicePillars: "ONE WAY TAXI | AIRPORT TRANSFERS | OUTSTATION TRAVEL | LUXURY TRAVELLER",
+  coverageScope: "DELHI | CHANDIGARH | PATIALA | ALL INDIA",
+  ctaMessage: "BOOK YOUR RIDE TODAY.",
   md: "Harinder Garg",
   
   phones: {
@@ -42,7 +46,15 @@ export const BUSINESS_CONFIG = {
     "Delhi",
     "Chandigarh",
     "Patiala",
-    "Delhi NCR"
+    "Delhi NCR",
+    "Shimla",
+    "Manali",
+    "Amritsar",
+    "Ludhiana",
+    "Jaipur",
+    "Agra",
+    "Dehradun",
+    "All India Service"
   ],
 
   offices: [
@@ -83,7 +95,8 @@ export const BUSINESS_CONFIG = {
     "24/7 Taxi on Call",
     "GPS Installed Cabs",
     "Verified Drivers",
-    "One Way Taxi Services"
+    "One Way Taxi Services",
+    "All India Urbania Charters"
   ],
 
   fareConditions: [
