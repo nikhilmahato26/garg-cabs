@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy-primary: #071D3B;
+    --navy-deep: #06152D;
+    --red-brand: #C71925;
+    --yellow-brand: #FFC928;
+    --gold-brand: #D4AF37;
+    --light-grey: #F3F5F8;
+    --text-primary: #17243A;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #17243A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Manrope', sans-serif;
+    letter-spacing: -0.015em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #E8EEF5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #071D3B;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C71925;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  .glass-dark {
+    background: rgba(7, 29, 59, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 201, 40, 0.2);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #FFC928 0%, #F5D77F 50%, #E5B11B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .badge-yellow {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-yellow-brand/20 text-yellow-800 border border-yellow-brand/40;
+  }
+
+  .badge-navy {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-navy/10 text-navy-800 border border-navy/20;
+  }
+
+  .badge-red {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-brand/10 text-red-brand border border-red-brand/30;
+  }
+
+  .btn-red {
+    @apply inline-flex items-center justify-center font-bold text-white bg-red-brand hover:bg-red-brand-hover active:scale-[0.98] transition-all duration-200 shadow-red-cta rounded-xl;
+  }
+
+  .btn-yellow {
+    @apply inline-flex items-center justify-center font-bold text-navy-deep bg-yellow-brand hover:bg-yellow-brand-hover active:scale-[0.98] transition-all duration-200 shadow-yellow-cta rounded-xl;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center font-bold text-white bg-navy hover:bg-navy-light active:scale-[0.98] transition-all duration-200 shadow-brand rounded-xl;
+  }
+
+  .btn-outline-navy {
+    @apply inline-flex items-center justify-center font-bold text-navy bg-white hover:bg-navy-50 border-2 border-navy/20 hover:border-navy transition-all duration-200 rounded-xl;
+  }
+}
