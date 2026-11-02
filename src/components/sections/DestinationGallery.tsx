@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Expand, Sparkles, ArrowRight, MessageCircle } from "lucide-react";
-import { GALLERY_CATEGORIES, GALLERY_PHOTOS, GalleryCategory, GalleryPhoto } from "../../data/destinations";
+import { GALLERY_CATEGORIES, GALLERY_PHOTOS, GalleryCategory, GalleryPhoto, ALL_DESTINATION_CITIES } from "../../data/destinations";
 import { LightboxModal, LightboxImageItem } from "../ui/LightboxModal";
 import { scrollToSection } from "../../utils/contact";
 
-export const DestinationGallery: React.FC = () => {
+interface DestinationGalleryProps {
+  onSelectDestination?: (cityName: string) => void;
+}
+
+export const DestinationGallery: React.FC<DestinationGalleryProps> = ({ onSelectDestination }) => {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory>("ALL PHOTOS");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -36,12 +40,19 @@ export const DestinationGallery: React.FC = () => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
+  const handleCityClick = (cityName: string) => {
+    if (onSelectDestination) {
+      onSelectDestination(cityName);
+    }
+    scrollToSection("booking-section");
+  };
+
   return (
     <section id="destinations-gallery-section" className="py-20 sm:py-28 bg-slate-50 relative overflow-hidden border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="badge-navy mb-3">Travel Photography & Fleet</span>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="badge-navy mb-3">Travel Photography & Destination Network</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy-deep tracking-tight">
             EXPLORE BEAUTIFUL DESTINATIONS WITH GARG CABS
           </h2>
@@ -49,8 +60,43 @@ export const DestinationGallery: React.FC = () => {
             Your Journey, Your Destination.
           </p>
           <p className="mt-3 text-sm sm:text-base text-text-muted">
-            From the bustling boulevards of Delhi and Chandigarh to the snowy peaks of Manali, the spiritual peace of Amritsar, and the royal heritage of Jaipur and Agra — experience seamless travel with GARG CABS.
+            Direct one-way and roundtrip taxi connectivity across 37+ key cities, airports, hill stations, and sacred pilgrimage dhams.
           </p>
+        </div>
+
+        {/* 37+ Cities Interactive Quick Directory Bar */}
+        <div className="bg-white rounded-3xl p-5 sm:p-7 border-2 border-slate-200/80 shadow-brand mb-12">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 mb-4">
+            <div>
+              <span className="text-xs font-black text-navy-deep uppercase tracking-wider flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-red-brand" />
+                <span>37+ Operational Cities & Major Airports</span>
+              </span>
+              <p className="text-xs text-text-muted mt-0.5">
+                Click any city to instantly plan your route and request a one-way fare quote.
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-yellow-800 bg-yellow-brand/20 px-3 py-1 rounded-full border border-yellow-brand/30 self-start sm:self-auto">
+              24/7 Service on Call
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2 max-h-56 sm:max-h-none overflow-y-auto pr-1">
+            {ALL_DESTINATION_CITIES.map((city) => (
+              <button
+                key={city.name}
+                onClick={() => handleCityClick(city.name)}
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-50 hover:bg-navy text-navy-deep hover:text-white border border-slate-200/90 hover:border-navy shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer text-left"
+                title={`${city.name} — ${city.highlight} (${city.popularCab})`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-red-brand group-hover:bg-yellow-brand transition-colors" />
+                <span className="font-extrabold">{city.name}</span>
+                <span className="text-[10px] text-slate-400 group-hover:text-yellow-200 font-normal">
+                  ({city.category})
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Category Filters Bar */}

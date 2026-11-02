@@ -58,7 +58,7 @@ export const Home: React.FC = () => {
         <PopularRoutes onSelectRoute={handleSelectRoute} />
 
         {/* 8. Travel Destination Gallery */}
-        <DestinationGallery />
+        <DestinationGallery onSelectDestination={(cityName) => handleSelectRoute("Delhi Airport", cityName)} />
 
         {/* 9. Our Services */}
         <Services />

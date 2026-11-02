@@ -27,16 +27,16 @@ export const FareCard: React.FC<FareCardProps> = ({ item, onSelectVehicle }) => 
         </div>
       )}
 
-      {/* Vehicle Image Container */}
-      <div className="relative h-48 sm:h-52 bg-gradient-to-b from-slate-100 via-slate-50 to-white flex items-center justify-center p-4 pt-10 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#071D3B_1px,transparent_1px)] [background-size:14px_14px]" />
+      {/* Vehicle Image Container with Airport Background */}
+      <div className="relative h-48 sm:h-52 bg-slate-900 overflow-hidden">
         <img
           src={item.image}
           alt={item.vehicleName}
-          className="relative max-h-full max-w-full object-contain filter drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <span className="absolute bottom-2 right-3 text-[11px] font-semibold text-slate-500 uppercase tracking-wider bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded border border-slate-200">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+        <span className="absolute bottom-2.5 right-3 text-[11px] font-bold text-yellow-brand uppercase tracking-wider bg-black/70 backdrop-blur-sm px-2.5 py-0.5 rounded border border-yellow-brand/30">
           {item.category}
         </span>
       </div>

@@ -11,66 +11,143 @@ export interface GalleryPhoto {
 
 export type GalleryCategory =
   | "ALL PHOTOS"
+  | "AIRPORTS"
+  | "PATIALA"
+  | "CHANDIGARH"
+  | "DELHI & NCR"
+  | "LUDHIANA"
+  | "AMRITSAR & PUNJAB"
+  | "SHIMLA & MANALI"
+  | "DHARAMSHALA & DALHOUSIE"
+  | "HARIDWAR & RISHIKESH"
+  | "KHATU SHYAM & SALASAR"
+  | "MATHURA & VRINDAVAN"
+  | "JAIPUR & AGRA"
+  | "DEHRADUN & MUSSOORIE"
   | "OUR VEHICLES"
   | "URBANIA TRAVELLER"
-  | "LUXURY INTERIORS"
-  | "DELHI"
-  | "CHANDIGARH"
-  | "SHIMLA"
-  | "MANALI"
-  | "AMRITSAR"
-  | "LUDHIANA"
-  | "JAIPUR"
-  | "AGRA"
-  | "DEHRADUN";
+  | "LUXURY INTERIORS";
 
 export const GALLERY_CATEGORIES: GalleryCategory[] = [
   "ALL PHOTOS",
+  "AIRPORTS",
+  "PATIALA",
+  "CHANDIGARH",
+  "DELHI & NCR",
+  "LUDHIANA",
+  "AMRITSAR & PUNJAB",
+  "SHIMLA & MANALI",
+  "DHARAMSHALA & DALHOUSIE",
+  "HARIDWAR & RISHIKESH",
+  "KHATU SHYAM & SALASAR",
+  "MATHURA & VRINDAVAN",
+  "JAIPUR & AGRA",
+  "DEHRADUN & MUSSOORIE",
   "OUR VEHICLES",
   "URBANIA TRAVELLER",
   "LUXURY INTERIORS",
-  "DELHI",
-  "CHANDIGARH",
-  "SHIMLA",
-  "MANALI",
-  "AMRITSAR",
-  "LUDHIANA",
-  "JAIPUR",
-  "AGRA",
-  "DEHRADUN",
+];
+
+export interface DestinationCityInfo {
+  name: string;
+  category: string;
+  highlight: string;
+  popularCab: string;
+}
+
+export const ALL_DESTINATION_CITIES: DestinationCityInfo[] = [
+  { name: "Patiala", category: "Punjab Hub", highlight: "Royal City, Qila Mubarak & corporate hubs", popularCab: "Dzire / Ertiga" },
+  { name: "Chandigarh Airport", category: "Airport", highlight: "Shaheed Bhagat Singh Intl Airport transfers", popularCab: "Innova Crysta / Carens" },
+  { name: "Delhi Airport", category: "Airport", highlight: "Punctual one-way pickup & drop for T1, T2 & T3", popularCab: "Innova Crysta / Dzire" },
+  { name: "Amritsar Airport", category: "Airport", highlight: "Sri Guru Ram Dass Jee Intl Airport transfers", popularCab: "Innova Crysta / Ertiga" },
+  { name: "Amritsar", category: "Punjab Hub", highlight: "Golden Temple, Wagah Border & heritage markets", popularCab: "Innova Crysta / Dzire" },
+  { name: "Ludhiana", category: "Punjab Hub", highlight: "Punjab industrial heartland & business corridor", popularCab: "Dzire / Innova Crysta" },
+  { name: "Jalandhar", category: "Punjab Hub", highlight: "Sports goods hub & Devi Talab Mandir route", popularCab: "Dzire / Ertiga" },
+  { name: "Dehradun", category: "Uttarakhand", highlight: "Capital of Uttarakhand & Gateway to Mussoorie", popularCab: "Innova Crysta / Carens" },
+  { name: "Haridwar", category: "Pilgrimage", highlight: "Har Ki Pauri sacred Ganga Aarti & holy snan", popularCab: "Ertiga / Innova Crysta" },
+  { name: "Rishikesh", category: "Pilgrimage", highlight: "Yoga capital, Ram Jhula, Triveni Ghat & rafting", popularCab: "Innova Crysta / Carens" },
+  { name: "Jaipur", category: "Rajasthan", highlight: "Pink City palaces, Hawa Mahal & Amber Fort", popularCab: "Innova Crysta / Dzire" },
+  { name: "Agra", category: "UP Heritage", highlight: "Taj Mahal & Agra Fort via Yamuna Expressway", popularCab: "Dzire / Innova Crysta" },
+  { name: "Shimla", category: "Himachal", highlight: "Mall Road, Ridge, Kufri & pine-forested hills", popularCab: "Innova Crysta / Carens" },
+  { name: "Manali", category: "Himachal", highlight: "Solang Valley, Rohtang, Atal Tunnel & snow peaks", popularCab: "Innova Crysta / Urbania" },
+  { name: "Bathinda", category: "Punjab Hub", highlight: "Historic Qila Mubarak & Malwa transit hub", popularCab: "Dzire / Ertiga" },
+  { name: "Rajpura", category: "Punjab Hub", highlight: "Industrial gateway connecting Patiala & Tricity", popularCab: "Dzire / Ertiga" },
+  { name: "Ambala", category: "Haryana", highlight: "Crucial railway junction & textile wholesale hub", popularCab: "Dzire / Ertiga" },
+  { name: "Karnal", category: "Haryana", highlight: "Grand Trunk corridor connecting Delhi & Punjab", popularCab: "Dzire / Ertiga" },
+  { name: "Lucknow", category: "UP Heritage", highlight: "City of Nawabs, Gomti Nagar & Rumi Darwaza", popularCab: "Innova Crysta / Carens" },
+  { name: "Sangrur", category: "Punjab Hub", highlight: "Jind State heritage & heart of Malwa region", popularCab: "Dzire / Ertiga" },
+  { name: "Barnala", category: "Punjab Hub", highlight: "Textile manufacturing & regional commerce center", popularCab: "Dzire / Ertiga" },
+  { name: "Dalhousie", category: "Himachal", highlight: "Khajjiar mini-Switzerland & colonial hill retreat", popularCab: "Innova Crysta / Urbania" },
+  { name: "Dharamshala", category: "Himachal", highlight: "McLeod Ganj, Dalai Lama Temple & Dhauladhar", popularCab: "Innova Crysta / Carens" },
+  { name: "Mussoorie", category: "Uttarakhand", highlight: "Queen of the Hills, Kempty Falls & Mall Road", popularCab: "Innova Crysta / Carens" },
+  { name: "Udaipur", category: "Rajasthan", highlight: "City of Lakes, Lake Pichola & royal palaces", popularCab: "Innova Crysta / Urbania" },
+  { name: "Vrindavan", category: "Pilgrimage", highlight: "Prem Mandir, Banke Bihari & ISKCON Temple", popularCab: "Ertiga / Innova Crysta" },
+  { name: "Mathura", category: "Pilgrimage", highlight: "Shri Krishna Janmabhoomi & Yamuna Ghats", popularCab: "Ertiga / Dzire" },
+  { name: "Faridabad", category: "Delhi NCR", highlight: "NCR commercial hub & Surajkund corridor", popularCab: "Dzire / Ertiga" },
+  { name: "Gurgaon", category: "Delhi NCR", highlight: "Cyber City, DLF CyberHub & corporate towers", popularCab: "Innova Crysta / Dzire" },
+  { name: "Noida", category: "Delhi NCR", highlight: "Noida Expressway, IT parks & corporate sector", popularCab: "Dzire / Carens" },
+  { name: "Greater Noida", category: "Delhi NCR", highlight: "Pari Chowk, India Expo Mart & universities", popularCab: "Dzire / Ertiga" },
+  { name: "Ghaziabad", category: "Delhi NCR", highlight: "Indirapuram, Raj Nagar Extension & UP gateway", popularCab: "Dzire / Ertiga" },
+  { name: "Sunam", category: "Punjab Hub", highlight: "Shaheed Udham Singh birthplace & Malwa town", popularCab: "Dzire / Ertiga" },
+  { name: "Mansa", category: "Punjab Hub", highlight: "Cotton belt commerce & regional Punjab corridor", popularCab: "Dzire / Ertiga" },
+  { name: "Meerut", category: "Delhi NCR", highlight: "Delhi-Meerut RRTS expressway corridor", popularCab: "Dzire / Ertiga" },
+  { name: "Khatu Shyam Ji", category: "Pilgrimage", highlight: "Reverent Khatu Shyam Ji temple holy yatra", popularCab: "Innova Crysta / Ertiga" },
+  { name: "Salasar", category: "Pilgrimage", highlight: "Salasar Balaji Dham divine pilgrimage tour", popularCab: "Innova Crysta / Ertiga" },
 ];
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
-  // ── DELHI ───────────────────────────────────────────────────────────
+  // ── AIRPORTS ─────────────────────────────────────────────────────────
   {
-    id: "delhi-india-gate",
-    url: "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1600&auto=format&fit=crop",
-    title: "India Gate & Kartavya Path",
-    location: "New Delhi",
-    category: "DELHI",
+    id: "delhi-airport-fleet",
+    url: "/images/hero/hero_bg.png",
+    title: "Delhi IGI Airport (T3) Chauffeur Fleet",
+    location: "Delhi Airport Terminal 3",
+    category: "AIRPORTS",
     aspect: "wide",
-    description: "The monumental pride of the capital city. Grand war memorial surrounded by sprawling gardens.",
-    suggestedTrip: "Delhi Local & Outstation Taxi",
+    description: "24/7 airport terminal pickup and drop with guaranteed on-time chauffeur arrival and flight tracking.",
+    suggestedTrip: "Delhi Airport ⇄ Chandigarh / Patiala / Ludhiana",
   },
   {
-    id: "delhi-airport",
-    url: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop",
-    title: "Indira Gandhi International Airport (T3)",
-    location: "New Delhi Airport",
-    category: "DELHI",
+    id: "chd-airport",
+    url: "https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=1600&auto=format&fit=crop",
+    title: "Chandigarh International Airport (Mohali)",
+    location: "Shaheed Bhagat Singh Intl Airport",
+    category: "AIRPORTS",
     aspect: "landscape",
-    description: "Punctual one-way airport pickup and drop service connecting Punjab and Haryana directly to T1, T2 & T3.",
-    suggestedTrip: "Chandigarh ⇄ Delhi Airport Taxi",
+    description: "Direct airport transfers connecting Tricity travelers to Patiala, Ludhiana, Jalandhar, and Himachal.",
+    suggestedTrip: "Chandigarh Airport ⇄ Patiala / Punjab",
   },
   {
-    id: "delhi-red-fort",
-    url: "https://images.unsplash.com/photo-1598324789736-4861f89564d0?q=80&w=1600&auto=format&fit=crop",
-    title: "Historic Red Fort Landmark",
-    location: "Old Delhi",
-    category: "DELHI",
+    id: "amritsar-airport",
+    url: "https://images.unsplash.com/photo-1508873696983-2df5293cb395?q=80&w=1600&auto=format&fit=crop",
+    title: "Sri Guru Ram Dass Jee International Airport",
+    location: "Amritsar Airport (ATQ)",
+    category: "AIRPORTS",
     aspect: "portrait",
-    description: "Iconic Mughal architecture landmark and cultural heritage center in the heart of Old Delhi.",
-    suggestedTrip: "Delhi Full Day City Sightseeing",
+    description: "Punctual one-way cab service for NRI travelers, tourists, and pilgrims landing at Amritsar.",
+    suggestedTrip: "Amritsar Airport ⇄ Jalandhar / Ludhiana / Chandigarh",
+  },
+
+  // ── PATIALA ──────────────────────────────────────────────────────────
+  {
+    id: "patiala-qila-mubarak",
+    url: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1600&auto=format&fit=crop",
+    title: "Historic Qila Mubarak & Royal Heritage",
+    location: "Old City, Patiala, Punjab",
+    category: "PATIALA",
+    aspect: "wide",
+    description: "The royal heartbeat of Punjab. Garg Cabs operates daily dedicated routes directly from Patiala.",
+    suggestedTrip: "Patiala ⇄ Delhi Airport / Chandigarh",
+  },
+  {
+    id: "patiala-sheesh-mahal",
+    url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1600&auto=format&fit=crop",
+    title: "Sheesh Mahal & Royal Gardens",
+    location: "Patiala City, Punjab",
+    category: "PATIALA",
+    aspect: "portrait",
+    description: "Majestic palace with ornate fresco mirror work and suspension bridge, emblematic of Patiala royal legacy.",
+    suggestedTrip: "Patiala Local Sightseeing & Outstation Cab",
   },
 
   // ── CHANDIGARH ──────────────────────────────────────────────────────
@@ -82,12 +159,12 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     category: "CHANDIGARH",
     aspect: "wide",
     description: "Picturesque man-made reservoir nestled at the foothills of the Shivalik range, ideal for morning walks.",
-    suggestedTrip: "Chandigarh City Tour",
+    suggestedTrip: "Chandigarh City Tour & Outstation",
   },
   {
     id: "chd-green-boulevards",
     url: "https://images.unsplash.com/photo-1597040663342-45b6af3d91a5?q=80&w=1600&auto=format&fit=crop",
-    title: "The City Beautiful — Boulevard Trees",
+    title: "The City Beautiful — Boulevard Corridors",
     location: "Chandigarh Sectoral Corridors",
     category: "CHANDIGARH",
     aspect: "portrait",
@@ -95,70 +172,26 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     suggestedTrip: "Chandigarh Local & Tricity Cab",
   },
 
-  // ── SHIMLA ──────────────────────────────────────────────────────────
+  // ── DELHI & NCR ──────────────────────────────────────────────────────
   {
-    id: "shimla-mall-road",
-    url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1600&auto=format&fit=crop",
-    title: "The Ridge & Christ Church",
-    location: "Shimla, Himachal Pradesh",
-    category: "SHIMLA",
-    aspect: "landscape",
-    description: "Queen of the Hills featuring neo-gothic colonial architecture, buzzing Mall Road, and panoramic valley viewpoints.",
-    suggestedTrip: "Chandigarh to Shimla One-Way Taxi",
-  },
-  {
-    id: "shimla-pine-valleys",
-    url: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1600&auto=format&fit=crop",
-    title: "Pine-Clad Himalayan Mountain Valleys",
-    location: "Shimla Hills / Kufri",
-    category: "SHIMLA",
-    aspect: "portrait",
-    description: "Crisp mountain air, towering cedar pine forests, and misty Himalayan ridges just 3 hours from Chandigarh.",
-    suggestedTrip: "Delhi / Chandigarh to Kufri & Shimla",
-  },
-
-  // ── MANALI ──────────────────────────────────────────────────────────
-  {
-    id: "manali-solang-valley",
-    url: "https://images.unsplash.com/photo-1571536802807-30451e3955d8?q=80&w=1600&auto=format&fit=crop",
-    title: "Solang Valley Snow-Covered Peaks",
-    location: "Manali, Himachal Pradesh",
-    category: "MANALI",
+    id: "delhi-india-gate",
+    url: "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1600&auto=format&fit=crop",
+    title: "India Gate & Kartavya Path",
+    location: "New Delhi",
+    category: "DELHI & NCR",
     aspect: "wide",
-    description: "Breathtaking snow-draped alpine scenery, adventure sports, and scenic riversides in Kullu Valley.",
-    suggestedTrip: "Chandigarh to Manali Holiday Cab",
+    description: "The monumental pride of the capital city. Grand war memorial surrounded by sprawling gardens.",
+    suggestedTrip: "Delhi Local & Outstation Taxi",
   },
   {
-    id: "manali-rohtang",
-    url: "https://images.unsplash.com/photo-1594973816221-5e744d081fc3?q=80&w=1600&auto=format&fit=crop",
-    title: "Majestic Mountain Pass Roadways",
-    location: "Rohtang / Atal Tunnel Corridor",
-    category: "MANALI",
-    aspect: "landscape",
-    description: "World-class expressway engineering traversing snowy mountain passes into Lahaul & Spiti valleys.",
-    suggestedTrip: "Delhi / Chandigarh to Manali Package",
-  },
-
-  // ── AMRITSAR ────────────────────────────────────────────────────────
-  {
-    id: "amritsar-golden-temple",
-    url: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1600&auto=format&fit=crop",
-    title: "Sri Harmandir Sahib (Golden Temple)",
-    location: "Amritsar, Punjab",
-    category: "AMRITSAR",
-    aspect: "wide",
-    description: "Spiritual sanctuary bathed in golden light with the sacred Sarovar, welcoming visitors with peace and langar.",
-    suggestedTrip: "Chandigarh / Delhi to Amritsar One-Way",
-  },
-  {
-    id: "amritsar-night-view",
-    url: "https://images.unsplash.com/photo-1609137144822-4a0058b88d37?q=80&w=1600&auto=format&fit=crop",
-    title: "Golden Temple Heritage Street at Night",
-    location: "Amritsar Walled City",
-    category: "AMRITSAR",
+    id: "delhi-ncr-corridor",
+    url: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=1600&auto=format&fit=crop",
+    title: "Gurgaon, Noida & Greater Noida Corridors",
+    location: "Delhi NCR Expressway",
+    category: "DELHI & NCR",
     aspect: "portrait",
-    description: "Illuminated pedestrian heritage street featuring vibrant bazaars, authentic Amritsari kulchas, and cultural pride.",
-    suggestedTrip: "Patiala to Amritsar Cab Service",
+    description: "Seamless connectivity spanning Gurgaon Cyber City, Noida, Greater Noida, Faridabad, Ghaziabad and Meerut.",
+    suggestedTrip: "Delhi NCR ⇄ Punjab & Tricity Cab",
   },
 
   // ── LUDHIANA ────────────────────────────────────────────────────────
@@ -169,74 +202,184 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     location: "Ludhiana Grand Trunk Highway",
     category: "LUDHIANA",
     aspect: "landscape",
-    description: "Punjab's bustling commerce capital, textile heartland, and lively food culture connected by swift highways.",
+    description: "Punjab's bustling commerce capital, textile heartland, and lively food culture connected by swift expressways.",
     suggestedTrip: "Delhi / Chandigarh to Ludhiana Taxi",
   },
+  {
+    id: "ludhiana-expressway",
+    url: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1600&auto=format&fit=crop",
+    title: "Ludhiana Highway Corridor & Clock Tower",
+    location: "Ludhiana Bypass Expressway",
+    category: "LUDHIANA",
+    aspect: "wide",
+    description: "Swift one-way taxi corridors connecting Ludhiana seamlessly to Delhi Airport, Chandigarh, and Amritsar.",
+    suggestedTrip: "Ludhiana ⇄ Delhi Airport One-Way Taxi",
+  },
 
-  // ── JAIPUR ──────────────────────────────────────────────────────────
+  // ── AMRITSAR & PUNJAB ────────────────────────────────────────────────
+  {
+    id: "amritsar-golden-temple",
+    url: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1600&auto=format&fit=crop",
+    title: "Sri Harmandir Sahib (Golden Temple)",
+    location: "Amritsar, Punjab",
+    category: "AMRITSAR & PUNJAB",
+    aspect: "wide",
+    description: "Spiritual sanctuary bathed in golden light with the sacred Sarovar, welcoming visitors with peace and langar.",
+    suggestedTrip: "Chandigarh / Delhi to Amritsar One-Way",
+  },
+  {
+    id: "punjab-malwa-corridor",
+    url: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1600&auto=format&fit=crop",
+    title: "Jalandhar, Bathinda, Sangrur & Malwa Corridors",
+    location: "Punjab Central Network",
+    category: "AMRITSAR & PUNJAB",
+    aspect: "portrait",
+    description: "Comprehensive coverage across Jalandhar, Bathinda, Rajpura, Ambala, Karnal, Sangrur, Barnala, Sunam & Mansa.",
+    suggestedTrip: "Patiala / Tricity to Malwa & Jalandhar Cabs",
+  },
+
+  // ── SHIMLA & MANALI ──────────────────────────────────────────────────
+  {
+    id: "shimla-mall-road",
+    url: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1600&auto=format&fit=crop",
+    title: "The Ridge & Christ Church",
+    location: "Shimla, Himachal Pradesh",
+    category: "SHIMLA & MANALI",
+    aspect: "landscape",
+    description: "Queen of the Hills featuring neo-gothic colonial architecture, buzzing Mall Road, and panoramic valley viewpoints.",
+    suggestedTrip: "Chandigarh to Shimla One-Way Taxi",
+  },
+  {
+    id: "manali-solang-valley",
+    url: "https://images.unsplash.com/photo-1571536802807-30451e3955d8?q=80&w=1600&auto=format&fit=crop",
+    title: "Solang Valley & Rohtang Pass",
+    location: "Manali, Himachal Pradesh",
+    category: "SHIMLA & MANALI",
+    aspect: "wide",
+    description: "Breathtaking snow-draped alpine scenery, adventure sports, and scenic riversides in Kullu Valley.",
+    suggestedTrip: "Chandigarh / Delhi to Manali Holiday Cab",
+  },
+
+  // ── DHARAMSHALA & DALHOUSIE ──────────────────────────────────────────
+  {
+    id: "dharamshala-mcleod",
+    url: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=1600&auto=format&fit=crop",
+    title: "Dharamshala & McLeod Ganj Monasteries",
+    location: "Kangra Valley, Himachal Pradesh",
+    category: "DHARAMSHALA & DALHOUSIE",
+    aspect: "wide",
+    description: "Nestled beneath the majestic Dhauladhar snow range, home of His Holiness Dalai Lama and cedar forest trails.",
+    suggestedTrip: "Chandigarh / Delhi to Dharamshala Cab",
+  },
+  {
+    id: "dalhousie-khajjiar",
+    url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop",
+    title: "Khajjiar Meadows & Dalhousie Hills",
+    location: "Chamba District, Himachal",
+    category: "DHARAMSHALA & DALHOUSIE",
+    aspect: "portrait",
+    description: "India's mini-Switzerland with lush saucer-shaped green meadows, cedar forests, and cool mountain air.",
+    suggestedTrip: "Patiala / Chandigarh to Dalhousie Cab",
+  },
+
+  // ── HARIDWAR & RISHIKESH ─────────────────────────────────────────────
+  {
+    id: "haridwar-ganga-aarti",
+    url: "https://images.unsplash.com/photo-1596766442651-78959d00ee9c?q=80&w=1600&auto=format&fit=crop",
+    title: "Har Ki Pauri Divine Ganga Aarti",
+    location: "Haridwar, Uttarakhand",
+    category: "HARIDWAR & RISHIKESH",
+    aspect: "wide",
+    description: "Sacred evening Ganga Aarti ceremony, holy riverbank ghats, and spiritual solace at the gateway of Char Dham.",
+    suggestedTrip: "Delhi / Chandigarh to Haridwar Cab",
+  },
+  {
+    id: "rishikesh-ram-jhula",
+    url: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=1600&auto=format&fit=crop",
+    title: "Ram Jhula & Himalayan Foothills",
+    location: "Rishikesh, Uttarakhand",
+    category: "HARIDWAR & RISHIKESH",
+    aspect: "portrait",
+    description: "World capital of Yoga, scenic suspension bridges across emerald Ganga, ashrams, and adventure rafting.",
+    suggestedTrip: "Delhi NCR to Rishikesh One-Way Taxi",
+  },
+
+  // ── KHATU SHYAM & SALASAR ────────────────────────────────────────────
+  {
+    id: "khatu-shyam-ji-dham",
+    url: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?q=80&w=1600&auto=format&fit=crop",
+    title: "Shri Khatu Shyam Ji Sacred Mandir",
+    location: "Sikar, Rajasthan",
+    category: "KHATU SHYAM & SALASAR",
+    aspect: "wide",
+    description: "Sacred pilgrimage destination attracting millions of devotees seeking blessings of Baba Shyam.",
+    suggestedTrip: "Delhi / Punjab to Khatu Shyam Ji Pilgrimage Cab",
+  },
+  {
+    id: "salasar-balaji-dham",
+    url: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=1600&auto=format&fit=crop",
+    title: "Salasar Balaji Mandir Holy Darshan",
+    location: "Churu, Rajasthan",
+    category: "KHATU SHYAM & SALASAR",
+    aspect: "portrait",
+    description: "Renowned temple dedicated to Lord Hanuman with peaceful prayer courtyards and dedicated pilgrim transit.",
+    suggestedTrip: "Patiala / Delhi to Salasar Balaji Yatra",
+  },
+
+  // ── MATHURA & VRINDAVAN ──────────────────────────────────────────────
+  {
+    id: "vrindavan-prem-mandir",
+    url: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1600&auto=format&fit=crop",
+    title: "Prem Mandir & Banke Bihari Vrindavan",
+    location: "Vrindavan, Uttar Pradesh",
+    category: "MATHURA & VRINDAVAN",
+    aspect: "wide",
+    description: "Illuminated white Italian marble temple complex, Krishna leela carvings, and spiritual bliss in Braj Bhoomi.",
+    suggestedTrip: "Delhi NCR to Mathura-Vrindavan Same Day Cab",
+  },
+  {
+    id: "mathura-janmabhoomi",
+    url: "https://images.unsplash.com/photo-1627894006066-b45229bf2348?q=80&w=1600&auto=format&fit=crop",
+    title: "Shri Krishna Janmabhoomi & Yamuna Ghats",
+    location: "Mathura, Uttar Pradesh",
+    category: "MATHURA & VRINDAVAN",
+    aspect: "portrait",
+    description: "Ancient birthplace of Lord Krishna along the holy banks of river Yamuna, vibrant with devotion and pedas.",
+    suggestedTrip: "Delhi / Chandigarh to Mathura Pilgrimage Tour",
+  },
+
+  // ── JAIPUR & AGRA ────────────────────────────────────────────────────
   {
     id: "jaipur-hawa-mahal",
     url: "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?q=80&w=1600&auto=format&fit=crop",
     title: "Hawa Mahal (Palace of Winds)",
     location: "Pink City, Jaipur, Rajasthan",
-    category: "JAIPUR",
+    category: "JAIPUR & AGRA",
     aspect: "portrait",
     description: "Iconic honeycomb sandstone palace with 953 intricate jharokha windows overlooking the bustling bazaar.",
     suggestedTrip: "Delhi to Jaipur Expressway Taxi",
   },
   {
-    id: "jaipur-amber-fort",
-    url: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1600&auto=format&fit=crop",
-    title: "Amber Fort & Royal Courtyards",
-    location: "Amer, Jaipur",
-    category: "JAIPUR",
-    aspect: "wide",
-    description: "Magnificent hilltop fortress blending Rajput and Mughal architecture overlooking Maota Lake.",
-    suggestedTrip: "Delhi NCR to Jaipur Royal Tour",
-  },
-
-  // ── AGRA ────────────────────────────────────────────────────────────
-  {
     id: "agra-taj-mahal",
     url: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1600&auto=format&fit=crop",
     title: "The Taj Mahal — Wonder of the World",
     location: "Agra, Uttar Pradesh",
-    category: "AGRA",
+    category: "JAIPUR & AGRA",
     aspect: "wide",
     description: "World-famous ivory-white marble mausoleum on the banks of the Yamuna River, symbolizing eternal love.",
     suggestedTrip: "Delhi to Agra via Yamuna Expressway",
   },
-  {
-    id: "agra-fort-sunrise",
-    url: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1600&auto=format&fit=crop",
-    title: "Agra Fort Heritage Ramparts",
-    location: "Agra Historic District",
-    category: "AGRA",
-    aspect: "landscape",
-    description: "Historic fortified palace city of red sandstone with imperial halls and distant views of the Taj.",
-    suggestedTrip: "Delhi NCR Same Day Agra Tour",
-  },
 
-  // ── DEHRADUN ────────────────────────────────────────────────────────
+  // ── DEHRADUN & MUSSOORIE ─────────────────────────────────────────────
   {
     id: "dehradun-scenic-valley",
     url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop",
-    title: "Doon Valley Scenic Mountain Landscapes",
-    location: "Dehradun / Mussoorie Foothills",
-    category: "DEHRADUN",
-    aspect: "landscape",
-    description: "Capital of Uttarakhand nestled in the Doon Valley, Gateway to Mussoorie, Rishikesh, and Haridwar.",
-    suggestedTrip: "Chandigarh to Dehradun One-Way Cab",
-  },
-  {
-    id: "dehradun-hills",
-    url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop",
-    title: "Shivalik Range Foothills & Forest Retreats",
-    location: "Dehradun Region",
-    category: "DEHRADUN",
-    aspect: "portrait",
-    description: "Lush sal forests, gushing rivers, and serene spiritual atmosphere connecting mountains and plains.",
-    suggestedTrip: "Delhi / Chandigarh to Rishikesh / Dehradun",
+    title: "Doon Valley & Mussoorie Mall Road",
+    location: "Dehradun / Mussoorie, Uttarakhand",
+    category: "DEHRADUN & MUSSOORIE",
+    aspect: "wide",
+    description: "Capital of Uttarakhand and the Queen of the Hills. Breathtaking pine slopes, mist-filled valleys, and fresh waterfalls.",
+    suggestedTrip: "Chandigarh / Delhi to Dehradun & Mussoorie Cab",
   },
 
   // ── OUR VEHICLES ────────────────────────────────────────────────────

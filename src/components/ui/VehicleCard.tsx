@@ -36,14 +36,23 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSelectVehic
         )}
       </div>
 
-      {/* Vehicle Image */}
-      <div className="relative h-44 sm:h-48 flex items-center justify-center p-4">
+      {/* Vehicle Image with Airport Background */}
+      <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-900 mx-4 mt-3 rounded-xl border border-slate-200/60">
         <img
           src={vehicle.image}
           alt={vehicle.name}
-          className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px]">
+          <span className="bg-black/60 backdrop-blur-sm text-yellow-brand font-bold uppercase tracking-wider px-2 py-0.5 rounded border border-yellow-brand/20">
+            Airport Ready
+          </span>
+          <span className="bg-black/60 backdrop-blur-sm text-slate-200 font-semibold px-2 py-0.5 rounded">
+            {vehicle.capacity.split("+")[0]}
+          </span>
+        </div>
       </div>
 
       {/* Card Info */}

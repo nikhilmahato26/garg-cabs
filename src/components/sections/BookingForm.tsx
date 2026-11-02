@@ -28,6 +28,82 @@ export interface BookingFormHandle {
   setRoute: (fromCity: string, toCity: string) => void;
 }
 
+export const BOOKING_CITIES_CATEGORIES = [
+  {
+    category: "Airports & Core Hubs",
+    cities: [
+      "Chandigarh Airport",
+      "Delhi Airport",
+      "Amritsar Airport",
+      "Chandigarh",
+      "Delhi",
+      "Patiala",
+      "Ludhiana",
+    ],
+  },
+  {
+    category: "Punjab & Haryana",
+    cities: [
+      "Amritsar",
+      "Jalandhar",
+      "Bathinda",
+      "Rajpura",
+      "Ambala",
+      "Karnal",
+      "Sangrur",
+      "Barnala",
+      "Sunam",
+      "Mansa",
+    ],
+  },
+  {
+    category: "Delhi NCR",
+    cities: [
+      "Gurgaon",
+      "Noida",
+      "Greater Noida",
+      "Ghaziabad",
+      "Faridabad",
+      "Meerut",
+    ],
+  },
+  {
+    category: "Himachal & Hill Stations",
+    cities: [
+      "Shimla",
+      "Manali",
+      "Dalhousie",
+      "Dharamshala",
+      "Mussoorie",
+      "Dehradun",
+    ],
+  },
+  {
+    category: "Pilgrimage & Spiritual",
+    cities: [
+      "Haridwar",
+      "Rishikesh",
+      "Khatu Shyam Ji",
+      "Salasar",
+      "Vrindavan",
+      "Mathura",
+    ],
+  },
+  {
+    category: "Rajasthan & UP Tours",
+    cities: [
+      "Jaipur",
+      "Agra",
+      "Udaipur",
+      "Lucknow",
+    ],
+  },
+  {
+    category: "Other Destinations",
+    cities: ["Other / Custom City"],
+  },
+];
+
 interface BookingFormProps {
   initialVehicle?: string;
   initialFrom?: string;
@@ -177,10 +253,15 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
                       {...register("pickupCity")}
                       className="w-full pl-11 pr-4 py-3 bg-white rounded-xl border border-slate-300 text-sm text-navy-deep font-medium focus:outline-none focus:border-navy focus:ring-2 focus:ring-navy/20 transition-all cursor-pointer"
                     >
-                      <option value="Delhi">Delhi</option>
-                      <option value="Chandigarh">Chandigarh</option>
-                      <option value="Patiala">Patiala</option>
-                      <option value="Other">Other</option>
+                      {BOOKING_CITIES_CATEGORIES.map((cat) => (
+                        <optgroup key={cat.category} label={cat.category}>
+                          {cat.cities.map((city) => (
+                            <option key={city} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -218,10 +299,15 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
                       {...register("dropCity")}
                       className="w-full pl-11 pr-4 py-3 bg-white rounded-xl border border-slate-300 text-sm text-navy-deep font-medium focus:outline-none focus:border-navy focus:ring-2 focus:ring-navy/20 transition-all cursor-pointer"
                     >
-                      <option value="Chandigarh">Chandigarh</option>
-                      <option value="Delhi">Delhi</option>
-                      <option value="Patiala">Patiala</option>
-                      <option value="Other">Other</option>
+                      {BOOKING_CITIES_CATEGORIES.map((cat) => (
+                        <optgroup key={cat.category} label={cat.category}>
+                          {cat.cities.map((city) => (
+                            <option key={city} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
                     </select>
                   </div>
                 </div>

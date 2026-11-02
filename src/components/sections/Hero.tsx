@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy text-yellow-brand text-xs font-black tracking-widest uppercase shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-yellow-brand animate-pulse" />
-              <span>DELHI | CHANDIGARH | PATIALA</span>
+              <span>AIRPORTS | PATIALA | CHANDIGARH | DELHI | 37+ CITIES</span>
             </div>
 
             {/* Main Headline */}
@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
 
             {/* Supporting Text */}
             <p className="text-base sm:text-lg text-text-muted max-w-2xl font-normal leading-relaxed">
-              Travel conveniently between Delhi, Chandigarh, and Patiala with GARG CABS. Explore our vehicle options, check the available one-way fares, and contact us to arrange your journey.
+              Travel comfortably between Delhi Airport, Chandigarh, Patiala, Ludhiana, Amritsar, and 35+ destinations across North India with GARG CABS. Check vehicle options, transparent one-way fares, and book on-demand.
             </p>
 
             {/* Primary & Secondary CTAs */}
@@ -119,11 +119,11 @@ export const Hero: React.FC = () => {
                 </span>
               </div>
 
-              {/* Highway Hero Taxi Image */}
+              {/* Airport Terminal Hero Taxi Fleet Image */}
               <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-white/10 aspect-[4/3] flex items-center justify-center group">
                 <img
                   src="/images/hero/hero_bg.png"
-                  alt="Garg Cabs Highway Taxi"
+                  alt="Garg Cabs Airport & Outstation Taxi Fleet"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/20 to-transparent" />
@@ -131,8 +131,8 @@ export const Hero: React.FC = () => {
                 {/* Overlay Vehicle Badge */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2.5 rounded-xl bg-navy-deep/80 backdrop-blur-md border border-yellow-brand/30">
                   <div>
-                    <span className="block text-[10px] text-yellow-brand font-bold uppercase">Popular One-Way Choice</span>
-                    <span className="text-xs font-black text-white">Innova Crysta • Ertiga • Dzire</span>
+                    <span className="block text-[10px] text-yellow-brand font-bold uppercase">Airport Transfers & Intercity</span>
+                    <span className="text-xs font-black text-white">Innova Crysta • Carens • Ertiga • Dzire</span>
                   </div>
                   <div className="text-right">
                     <span className="text-[10px] text-slate-300 block">Fares From</span>
@@ -144,13 +144,16 @@ export const Hero: React.FC = () => {
               {/* Floating Quick Route Pills */}
               <div className="mt-4 pt-3 flex flex-wrap gap-2 text-xs">
                 <span className="px-3 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/15">
-                  Delhi ⇄ Chandigarh
+                  Delhi Airport ⇄ Chandigarh
                 </span>
                 <span className="px-3 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/15">
-                  Delhi ⇄ Patiala
+                  Chandigarh Airport ⇄ Patiala
                 </span>
                 <span className="px-3 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/15">
-                  Chandigarh ⇄ Patiala
+                  Delhi ⇄ Ludhiana
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/15">
+                  Amritsar ⇄ Delhi Airport
                 </span>
               </div>
             </div>

@@ -30,15 +30,22 @@ export const PopularRoutes: React.FC<PopularRoutesProps> = ({ onSelectRoute }) =
           </p>
 
           {/* Service Area Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-6 max-w-5xl mx-auto">
             {BUSINESS_CONFIG.serviceAreas.map((loc) => (
-              <span
+              <button
                 key={loc}
-                className="px-4 py-1.5 rounded-full text-xs font-bold bg-navy-50 text-navy border border-navy/20 flex items-center gap-1.5"
+                onClick={() => {
+                  if (onSelectRoute) {
+                    onSelectRoute("Delhi Airport", loc);
+                  }
+                  scrollToSection("booking-section");
+                }}
+                className="px-3 py-1.5 rounded-full text-xs font-bold bg-navy-50 text-navy hover:bg-navy hover:text-yellow-brand border border-navy/20 transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer shadow-xs group"
+                title={`Book taxi to ${loc}`}
               >
-                <MapPin className="w-3.5 h-3.5 text-red-brand" />
+                <MapPin className="w-3.5 h-3.5 text-red-brand group-hover:text-yellow-brand transition-colors" />
                 <span>{loc}</span>
-              </span>
+              </button>
             ))}
           </div>
         </div>
