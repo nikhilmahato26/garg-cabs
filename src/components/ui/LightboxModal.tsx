@@ -114,6 +114,12 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
               src={currentImage.url}
               alt={currentImage.title}
               className="max-h-[68vh] w-auto max-w-full object-contain select-none"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.includes("/images/hero/hero_bg.png")) {
+                  target.src = "/images/hero/hero_bg.png";
+                }
+              }}
             />
           </div>
 

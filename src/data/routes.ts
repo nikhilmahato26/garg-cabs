@@ -15,7 +15,7 @@ export const POPULAR_ROUTES: PopularRoute[] = [
     to: "Chandigarh",
     distanceEstimate: "Approx. 245 km",
     durationEstimate: "4 - 5 hrs via NH 44",
-    routeHighlight: "Seamless Delhi NCR to Chandigarh city center or airport transfer.",
+    routeHighlight: "Seamless Delhi NCR to Chandigarh city center, Sukhna Lake or airport transfer.",
     popularVehicles: ["Dzire", "Ertiga", "Innova Crysta"],
   },
   {
@@ -24,7 +24,7 @@ export const POPULAR_ROUTES: PopularRoute[] = [
     to: "Delhi",
     distanceEstimate: "Approx. 245 km",
     durationEstimate: "4 - 5 hrs via NH 44",
-    routeHighlight: "Direct drop to IGI Airport Delhi, New Delhi Railway Station, or NCR.",
+    routeHighlight: "Direct pickup from Chandigarh / Sukhna Lake to IGI Airport Delhi or NCR.",
     popularVehicles: ["Dzire", "Kia Carens", "Innova Crysta"],
   },
   {

@@ -143,6 +143,12 @@ export const DestinationGallery: React.FC<DestinationGalleryProps> = ({ onSelect
                     alt={photo.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.includes("/images/hero/hero_bg.png")) {
+                        target.src = "/images/hero/hero_bg.png";
+                      }
+                    }}
                   />
 
                   {/* Gradient Overlay */}

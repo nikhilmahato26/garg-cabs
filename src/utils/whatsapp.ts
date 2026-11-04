@@ -8,6 +8,7 @@ export interface BookingFormData {
   dropCity: string;
   dropLocation: string;
   travelDate: string;
+  pickupTime?: string;
   preferredVehicle: string;
   passengers: string;
   requirements?: string;
@@ -29,7 +30,7 @@ Name: ${data.fullName.trim()}
 Phone: ${data.mobileNumber.trim()}
 Pickup Location: ${pickup}
 Drop Location: ${drop}
-Travel Date: ${data.travelDate}
+Travel Date: ${data.travelDate}${data.pickupTime ? `\nPickup Time: ${data.pickupTime}` : ""}
 Preferred Vehicle: ${data.preferredVehicle}
 Number of Passengers: ${data.passengers}${data.requirements ? `\nAdditional Requirements: ${data.requirements.trim()}` : ""}
 

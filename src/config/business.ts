@@ -8,6 +8,11 @@ export interface OfficeLocation {
   phone: string;
   phoneHref: string;
   mapSearchUrl: string;
+  mapEmbedUrl?: string;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export const BUSINESS_CONFIG = {
@@ -97,7 +102,12 @@ export const BUSINESS_CONFIG = {
       state: "Chandigarh (U.T.)",
       phone: "+91 9780666555",
       phoneHref: "tel:+919780666555",
-      mapSearchUrl: "https://www.google.com/maps/search/?api=1&query=SCO+2417+3rd+Floor+Near+Aroma+Taxi+Stand+Sector+22-C+Chandigarh",
+      mapSearchUrl: "https://maps.google.com/?q=30.729397,76.771980",
+      mapEmbedUrl: "https://maps.google.com/maps?q=30.729397,76.771980&hl=en&z=16&output=embed",
+      coordinates: {
+        lat: 30.729397,
+        lng: 76.771980,
+      },
     },
     {
       id: "patiala",
@@ -114,6 +124,7 @@ export const BUSINESS_CONFIG = {
       phone: "+91 9316430001",
       phoneHref: "tel:+919316430001",
       mapSearchUrl: "https://www.google.com/maps/search/?api=1&query=Radhe+Radhe+Fruit+Company+Banana+Store+Banna+Road+Near+PGM+School+Sirhind+Road+Patiala+Punjab",
+      mapEmbedUrl: "https://maps.google.com/maps?q=Radhe+Radhe+Fruit+Company+Banana+Store+Banna+Road+Near+PGM+School+Sirhind+Road+Patiala+Punjab&hl=en&z=15&output=embed",
     }
   ] as OfficeLocation[],
 

@@ -69,6 +69,33 @@ export const OfficeLocations: React.FC = () => {
                     <span>{office.phone}</span>
                   </a>
                 </div>
+
+                {/* Embedded Interactive Google Map */}
+                {office.mapEmbedUrl && (
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">
+                      <span className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-red-brand" />
+                        <span>Location Map & Directions</span>
+                      </span>
+                      {office.id === "chandigarh" && (
+                        <span className="text-[10px] font-bold text-red-brand bg-red-50 border border-red-200 px-2 py-0.5 rounded-md">
+                          Sec 22-C (30.729397, 76.771980)
+                        </span>
+                      )}
+                    </div>
+                    <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
+                      <iframe
+                        src={office.mapEmbedUrl}
+                        title={`${office.title} — Google Maps Location`}
+                        className="w-full h-full border-0"
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Action Buttons */}

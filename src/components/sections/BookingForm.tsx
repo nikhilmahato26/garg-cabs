@@ -2,7 +2,7 @@ import React, { useEffect, forwardRef, useImperativeHandle } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Calendar, User, Phone, MapPin, Car, Users, Send, ShieldAlert } from "lucide-react";
+import { Calendar, Clock, User, Phone, MapPin, Car, Users, Send, ShieldAlert } from "lucide-react";
 import { getBookingWhatsAppUrl, BookingFormData } from "../../utils/whatsapp";
 
 const bookingSchema = z.object({
@@ -16,6 +16,7 @@ const bookingSchema = z.object({
   dropCity: z.string().min(1, "Select drop city"),
   dropLocation: z.string().min(2, "Enter drop location / landmark"),
   travelDate: z.string().min(1, "Select your travel date"),
+  pickupTime: z.string().min(1, "Select pickup time"),
   preferredVehicle: z.string().min(1, "Select preferred vehicle"),
   passengers: z.string().min(1, "Select passenger count"),
   requirements: z.string().optional(),
@@ -36,6 +37,7 @@ export const BOOKING_CITIES_CATEGORIES = [
       "Delhi Airport",
       "Amritsar Airport",
       "Chandigarh",
+      "Chandigarh (Sukhna Lake)",
       "Delhi",
       "Patiala",
       "Ludhiana",
@@ -129,6 +131,7 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
         dropCity: initialTo || "Chandigarh",
         dropLocation: "",
         travelDate: today,
+        pickupTime: "10:00",
         preferredVehicle: initialVehicle || "Toyota Innova Crysta",
         passengers: "4 Passengers",
         requirements: "",
@@ -163,6 +166,7 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
         dropCity: data.dropCity,
         dropLocation: data.dropLocation,
         travelDate: data.travelDate,
+        pickupTime: data.pickupTime,
         preferredVehicle: data.preferredVehicle,
         passengers: data.passengers,
         requirements: data.requirements,
@@ -345,15 +349,45 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
                       type="date"
                       min={today}
                       {...register("travelDate")}
-                      className="w-full pl-11 pr-4 py-3 bg-white rounded-xl border border-slate-300 text-sm text-navy-deep font-medium focus:outline-none focus:border-navy focus:ring-2 focus:ring-navy/20 transition-all"
+                      className={`w-full pl-11 pr-4 py-3 bg-white rounded-xl border text-sm text-navy-deep font-medium focus:outline-none focus:ring-2 transition-all ${
+                        errors.travelDate
+                          ? "border-red-500 focus:ring-red-500/20"
+                          : "border-slate-300 focus:border-navy focus:ring-navy/20"
+                      }`}
                     />
                   </div>
+                  {errors.travelDate && (
+                    <p className="mt-1 text-xs text-red-600 font-medium">{errors.travelDate.message}</p>
+                  )}
                 </div>
 
-                {/* 8. Preferred Vehicle */}
+                {/* 8. Pickup Time */}
+                <div>
+                  <label htmlFor="pickupTime" className="block text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">
+                    8. Pickup Time *
+                  </label>
+                  <div className="relative">
+                    <Clock className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input
+                      id="pickupTime"
+                      type="time"
+                      {...register("pickupTime")}
+                      className={`w-full pl-11 pr-4 py-3 bg-white rounded-xl border text-sm text-navy-deep font-medium focus:outline-none focus:ring-2 transition-all ${
+                        errors.pickupTime
+                          ? "border-red-500 focus:ring-red-500/20"
+                          : "border-slate-300 focus:border-navy focus:ring-navy/20"
+                      }`}
+                    />
+                  </div>
+                  {errors.pickupTime && (
+                    <p className="mt-1 text-xs text-red-600 font-medium">{errors.pickupTime.message}</p>
+                  )}
+                </div>
+
+                {/* 9. Preferred Vehicle */}
                 <div>
                   <label htmlFor="preferredVehicle" className="block text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">
-                    8. Preferred Vehicle *
+                    9. Preferred Vehicle *
                   </label>
                   <div className="relative">
                     <Car className="w-5 h-5 text-navy absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -374,10 +408,10 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
                   </div>
                 </div>
 
-                {/* 9. Number of Passengers */}
+                {/* 10. Number of Passengers */}
                 <div>
                   <label htmlFor="passengers" className="block text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">
-                    9. Number of Passengers *
+                    10. Number of Passengers *
                   </label>
                   <div className="relative">
                     <Users className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -398,10 +432,10 @@ export const BookingForm = forwardRef<BookingFormHandle, BookingFormProps>(
                   </div>
                 </div>
 
-                {/* 10. Additional Requirements */}
-                <div>
+                {/* 11. Additional Requirements */}
+                <div className="md:col-span-2">
                   <label htmlFor="requirements" className="block text-xs font-bold text-navy-deep uppercase tracking-wider mb-2">
-                    10. Additional Requirements (Optional)
+                    11. Additional Requirements (Optional)
                   </label>
                   <input
                     id="requirements"

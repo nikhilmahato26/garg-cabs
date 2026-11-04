@@ -157,9 +157,15 @@ export const Footer: React.FC = () => {
                 <span className="text-yellow-brand font-bold block mb-1">
                   Chandigarh Head Office:
                 </span>
-                <p className="text-slate-400 leading-tight">
+                <a
+                  href="https://maps.google.com/?q=30.729397,76.771980"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-white leading-tight block transition-colors underline decoration-slate-600 hover:decoration-yellow-brand"
+                  title="View Chandigarh Sector 22 Office on Google Maps"
+                >
                   SCO 2417, 3rd Floor, Near Aroma Taxi Stand, Sector 22-C, Chandigarh.
-                </p>
+                </a>
                 <a
                   href={BUSINESS_CONFIG.phones.secondaryHref}
                   className="text-white hover:text-yellow-brand inline-flex items-center gap-1 mt-1 font-semibold"

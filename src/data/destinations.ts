@@ -57,6 +57,7 @@ export interface DestinationCityInfo {
 
 export const ALL_DESTINATION_CITIES: DestinationCityInfo[] = [
   { name: "Patiala", category: "Punjab Hub", highlight: "Royal City, Qila Mubarak & corporate hubs", popularCab: "Dzire / Ertiga" },
+  { name: "Chandigarh (Sukhna Lake)", category: "UT Hub", highlight: "Sukhna Lake, Sector 17, Rock Garden & Tricity", popularCab: "Dzire / Innova Crysta / Ertiga" },
   { name: "Chandigarh Airport", category: "Airport", highlight: "Shaheed Bhagat Singh Intl Airport transfers", popularCab: "Innova Crysta / Carens" },
   { name: "Delhi Airport", category: "Airport", highlight: "Punctual one-way pickup & drop for T1, T2 & T3", popularCab: "Innova Crysta / Dzire" },
   { name: "Amritsar Airport", category: "Airport", highlight: "Sri Guru Ram Dass Jee Intl Airport transfers", popularCab: "Innova Crysta / Ertiga" },
@@ -153,13 +154,23 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   // ── CHANDIGARH ──────────────────────────────────────────────────────
   {
     id: "chd-sukhna-lake",
-    url: "https://images.unsplash.com/photo-1622306757659-338274198115?q=80&w=1600&auto=format&fit=crop",
-    title: "Serene Sukhna Lake at Sunset",
-    location: "Sector 1, Chandigarh",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sukhna_Lake_Chandigarh_India.jpg/1600px-Sukhna_Lake_Chandigarh_India.jpg",
+    title: "Serene Sukhna Lake Promenade & Shivalik Foothills",
+    location: "Sukhna Lake, Sector 1, Chandigarh",
     category: "CHANDIGARH",
     aspect: "wide",
-    description: "Picturesque man-made reservoir nestled at the foothills of the Shivalik range, ideal for morning walks.",
-    suggestedTrip: "Chandigarh City Tour & Outstation",
+    description: "Iconic tranquil reservoir with panoramic promenade views of the Shivalik hills, walking trails, and boat rides.",
+    suggestedTrip: "Chandigarh Local Sightseeing & Sukhna Lake Tour",
+  },
+  {
+    id: "chd-sukhna-lake-morning",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Sukhna_lake_as_viewed_on_a_sunny_morning.jpg/1600px-Sukhna_lake_as_viewed_on_a_sunny_morning.jpg",
+    title: "Sukhna Lake Morning Waters & Boating",
+    location: "Sukhna Lake Club, Sector 1, Chandigarh",
+    category: "CHANDIGARH",
+    aspect: "portrait",
+    description: "Serene morning reflections, watersports, and pedal boating on the calm waters of Sukhna Lake.",
+    suggestedTrip: "Chandigarh City Tour & Outstation Taxi",
   },
   {
     id: "chd-green-boulevards",
@@ -168,7 +179,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     location: "Chandigarh Sectoral Corridors",
     category: "CHANDIGARH",
     aspect: "portrait",
-    description: "India's first planned modernist city designed by Le Corbusier, famous for lush parks and wide roundabouts.",
+    description: "India's first planned modernist city designed by Le Corbusier, famous for lush parks, wide boulevards, and Sector 17 & 22.",
     suggestedTrip: "Chandigarh Local & Tricity Cab",
   },
 
